@@ -25,7 +25,11 @@ public class ActorMiddleware
                                    $"{httpContext.Request.Path}" +
                                    $"{httpContext.Request.Protocol}" +
                                    $"{httpContext.Request.ContentType}" +
-                                   $"{httpContext.Request.QueryString.Value}");
+                                   $"{httpContext.Request.QueryString.Value}" +
+                                   $"{httpContext.Request.Body}" +
+                                   $"{httpContext.Request.Headers}" +
+                                   $"{httpContext.Request.BodyReader}" +
+                                   $"{httpContext.Request.Cookies}");
         }
 
         return _next(httpContext);

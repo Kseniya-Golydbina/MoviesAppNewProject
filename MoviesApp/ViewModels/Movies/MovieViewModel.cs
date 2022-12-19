@@ -1,3 +1,5 @@
+using System;
+
 namespace MoviesApp.ViewModels.Movies
 {
     public class MovieViewModel : InputMovieViewModel

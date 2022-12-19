@@ -45,13 +45,12 @@ namespace MoviesApp.Controllers
                 return NotFound();
             }
 
-            var viewModel = _context.Movies.Where(m => m.Id == id).Select(m => new MovieViewModel
+            var viewModel = _context.Actors.Where(a => a.Id == id).Select(a => new ActorViewModel
             {
-                Id = m.Id,
-                Genre = m.Genre,
-                Price = m.Price,
-                Title = m.Title,
-                ReleaseDate = m.ReleaseDate
+                Id = a.Id,
+                FirstName = a.FirstName,
+                LastName = a.LastName,
+                DataOfBirth = a.DataOfBirth
             }).FirstOrDefault();
 
 
@@ -70,21 +69,18 @@ namespace MoviesApp.Controllers
             return View();
         }
 
-        // POST: Movies/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Title,ReleaseDate,Genre,Price")] InputMovieViewModel inputModel)
+        [FilterActorsAge]
+        public IActionResult Create([Bind("FirstName, LastName, DataOfBirth")] InputActorViewModel inputModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(new Movie
+                _context.Add(new Actor
                 {
-                    Genre = inputModel.Genre,
-                    Price = inputModel.Price,
-                    Title = inputModel.Title,
-                    ReleaseDate = inputModel.ReleaseDate
+                    FirstName = inputModel.FirstName,
+                    LastName = inputModel.LastName,
+                    DataOfBirth = inputModel.DataOfBirth
                 });
                 _context.SaveChanges();
 
@@ -102,12 +98,11 @@ namespace MoviesApp.Controllers
                 return NotFound();
             }
 
-            var editModel = _context.Movies.Where(m => m.Id == id).Select(m => new EditMovieViewModel
+            var editModel = _context.Actors.Where(a => a.Id == id).Select(a => new EditActorViewModel
             {
-                Genre = m.Genre,
-                Price = m.Price,
-                Title = m.Title,
-                ReleaseDate = m.ReleaseDate
+                FirstName = a.FirstName,
+                LastName = a.LastName,
+                DataOfBirth = a.DataOfBirth
             }).FirstOrDefault();
 
             if (editModel == null)
@@ -118,32 +113,29 @@ namespace MoviesApp.Controllers
             return View(editModel);
         }
 
-        // POST: Movies/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Title,ReleaseDate,Genre,Price")] EditMovieViewModel editModel)
+        [FilterActorsAge]
+        public IActionResult Edit(int id, [Bind("FirstName, LastName, DataOfBirth")] EditActorViewModel editModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var movie = new Movie
+                    var actor = new Actor
                     {
                         Id = id,
-                        Genre = editModel.Genre,
-                        Price = editModel.Price,
-                        Title = editModel.Title,
-                        ReleaseDate = editModel.ReleaseDate
+                        FirstName=editModel.FirstName,
+                        LastName=editModel.LastName,
+                        DataOfBirth=editModel.DataOfBirth
                     };
 
-                    _context.Update(movie);
+                    _context.Update(actor);
                     _context.SaveChanges();
                 }
                 catch (DbUpdateException)
                 {
-                    if (!MovieExists(id))
+                    if (!ActorExists(id))
                     {
                         return NotFound();
                     }
@@ -166,12 +158,11 @@ namespace MoviesApp.Controllers
                 return NotFound();
             }
 
-            var deleteModel = _context.Movies.Where(m => m.Id == id).Select(m => new DeleteMovieViewModel
+            var deleteModel = _context.Actors.Where(a => a.Id == id).Select(a => new DeleteActorViewModel
             {
-                Genre = m.Genre,
-                Price = m.Price,
-                Title = m.Title,
-                ReleaseDate = m.ReleaseDate
+                FirstName=a.FirstName,
+                LastName=a.LastName,
+                DataOfBirth=a.DataOfBirth
             }).FirstOrDefault();
 
             if (deleteModel == null)
@@ -187,16 +178,16 @@ namespace MoviesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var movie = _context.Movies.Find(id);
-            _context.Movies.Remove(movie);
+            var actor = _context.Actors.Find(id);
+            _context.Actors.Remove(actor);
             _context.SaveChanges();
-            _logger.LogError($"Movie with id {movie.Id} has been deleted!");
+            _logger.LogError($"Actor with id {actor.Id} has been deleted!");
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MovieExists(int id)
+        private bool ActorExists(int id)
         {
-            return _context.Movies.Any(e => e.Id == id);
+            return _context.Actors.Any(e => e.Id == id);
         }
     }
 }
