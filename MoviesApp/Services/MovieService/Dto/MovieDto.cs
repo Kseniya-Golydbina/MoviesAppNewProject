@@ -2,10 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using MoviesApp.Filters;
 
-namespace MoviesApp.Services.MovieService.Dto
+namespace MoviesApp.Services.Dto
 {
     public class MovieDto
     {
+        //Id - null, когда отправлена нам для создания
+        //Обратите внимание на конфигурацию мэппинга
+        //Id может отсуствовать в DTO, если практикуются разделения на Input/Output модели
         public int? Id { get; set; }
 
         [Required]

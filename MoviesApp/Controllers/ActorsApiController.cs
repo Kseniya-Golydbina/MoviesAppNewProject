@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Services;
-using MoviesApp.Services.ActorService.Dto;
-using MoviesApp.Services.ActorService;
 using MoviesApp.ViewModels.Actors;
+using MoviesApp.Services.Dto;
 
 namespace MoviesApp.Controllers
 {

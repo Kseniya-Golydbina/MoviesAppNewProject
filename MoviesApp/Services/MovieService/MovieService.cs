@@ -4,9 +4,9 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MoviesApp.Data;
 using MoviesApp.Models;
-using MoviesApp.Services.MovieService.Dto;
+using MoviesApp.Services.Dto;
 
-namespace MoviesApp.Services.MovieService
+namespace MoviesApp.Services
 {
     public class MovieService : IMovieService
     {

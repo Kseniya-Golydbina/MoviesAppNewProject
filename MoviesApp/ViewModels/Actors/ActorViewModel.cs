@@ -1,9 +1,8 @@
 ﻿using MoviesApp.ViewModels.Actors;
 
-namespace MoviesApp.ViewModels.Actors
+namespace MoviesApp.ViewModels.Actors;
+
+public class ActorViewModel : InputActorViewModel
 {
-    public class ActorViewModel : InputActorViewModel
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

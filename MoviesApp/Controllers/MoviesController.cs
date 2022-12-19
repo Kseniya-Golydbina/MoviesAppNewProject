@@ -7,10 +7,11 @@ using MoviesApp.Data;
 using MoviesApp.Models;
 using MoviesApp.ViewModels;
 using MoviesApp.ViewModels.Movies;
+//using MoviesApp.ViewModels.Movies;
 
 namespace MoviesApp.Controllers
 {
-    public class MoviesController: Controller
+    public class MoviesController : Controller
     {
         private readonly MoviesContext _context;
         private readonly ILogger<HomeController> _logger;
@@ -54,7 +55,7 @@ namespace MoviesApp.Controllers
                 ReleaseDate = m.ReleaseDate
             }).FirstOrDefault();
 
-            
+
             if (viewModel == null)
             {
                 return NotFound();
@@ -62,7 +63,7 @@ namespace MoviesApp.Controllers
 
             return View(viewModel);
         }
-        
+
         // GET: Movies/Create
         [HttpGet]
         public IActionResult Create()
@@ -92,7 +93,7 @@ namespace MoviesApp.Controllers
             }
             return View(inputModel);
         }
-        
+
         [HttpGet]
         // GET: Movies/Edit/5
         public IActionResult Edit(int? id)
@@ -109,12 +110,12 @@ namespace MoviesApp.Controllers
                 Title = m.Title,
                 ReleaseDate = m.ReleaseDate
             }).FirstOrDefault();
-            
+
             if (editModel == null)
             {
                 return NotFound();
             }
-            
+
             return View(editModel);
         }
 
@@ -137,7 +138,7 @@ namespace MoviesApp.Controllers
                         Title = editModel.Title,
                         ReleaseDate = editModel.ReleaseDate
                     };
-                    
+
                     _context.Update(movie);
                     _context.SaveChanges();
                 }
@@ -156,7 +157,7 @@ namespace MoviesApp.Controllers
             }
             return View(editModel);
         }
-        
+
         [HttpGet]
         // GET: Movies/Delete/5
         public IActionResult Delete(int? id)
@@ -173,7 +174,7 @@ namespace MoviesApp.Controllers
                 Title = m.Title,
                 ReleaseDate = m.ReleaseDate
             }).FirstOrDefault();
-            
+
             if (deleteModel == null)
             {
                 return NotFound();
@@ -181,7 +182,7 @@ namespace MoviesApp.Controllers
 
             return View(deleteModel);
         }
-        
+
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
 using MoviesApp.Models;
-using MoviesApp.Services.MovieService.Dto;
-using MoviesApp.ViewModels;
 
-namespace MoviesApp.Services.ActorService.Dto.AutoMapperProfiles
+namespace MoviesApp.Services.Dto.AutoMapperProfiles;
+
+public class ActorDtoProfile : Profile
 {
-    public class ActorDtoProfile : Profile
+    public ActorDtoProfile()
     {
-        public ActorDtoProfile()
-        {
-            CreateMap<Actor, ActorDto>().ReverseMap();
-        }
+        CreateMap<Actor, ActorDto>().ReverseMap();
     }
 }

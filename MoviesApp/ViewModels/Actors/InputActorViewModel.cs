@@ -12,7 +12,6 @@ namespace MoviesApp.ViewModels.Actors
         [Validation(4)]
         public string LastName { get; set; }
 
-
-        public DateTime BirthOfDate { get; set; }
+        public DateTime Birthday { get; set; }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using MoviesApp.Models;
-using MoviesApp.Services.MovieService.Dto;
+using MoviesApp.Services.Dto;
 
-namespace MoviesApp.Services.MovieService
+namespace MoviesApp.Services
 {
     public interface IMovieService
     {

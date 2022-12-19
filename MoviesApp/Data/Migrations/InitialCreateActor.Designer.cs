@@ -14,7 +14,7 @@ namespace MoviesApp.Data.Migrations
     [Migration("InitialCreareActor")]
     partial class InitialCreateActor
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

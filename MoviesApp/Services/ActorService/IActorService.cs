@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using MoviesApp.Services.ActorService.Dto;
+using MoviesApp.Services.Dto;
 
-namespace MoviesApp.Services.ActorService
+namespace MoviesApp.Services;
+
+public interface IActorService
 {
-    public interface IActorService
-    {
-        ActorDto GetActor(int id);
-        IEnumerable<ActorDto> GetAllActors();
-        ActorDto UpdateActor(ActorDto actorDto);
-        ActorDto AddActor(ActorDto actorDto);
-        ActorDto DeleteActor(int id);
-    }
+    ActorDto GetActor(int id);
+    IEnumerable<ActorDto> GetAllActors();
+    ActorDto UpdateActor(ActorDto actorDto);
+    ActorDto AddActor(ActorDto actorDto);
+    ActorDto DeleteActor(int id);
 }

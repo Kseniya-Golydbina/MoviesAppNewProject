@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MoviesApp.Services.MovieService.Dto;
+using MoviesApp.Services.Dto;
 using MoviesApp.ViewModels.Movies;
 
 namespace MoviesApp.ViewModels.AutoMapperProfiles

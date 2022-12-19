@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using MoviesApp.Services;
-using MoviesApp.Services.MovieService.Dto;
-using MoviesApp.Services.MovieService;
+using MoviesApp.Services.Dto;
 
-namespace MoviesApp.Controllers
+namespace MoviesApp.Controllers.Api
 {
     [Route("api/movies")]
     [ApiController]

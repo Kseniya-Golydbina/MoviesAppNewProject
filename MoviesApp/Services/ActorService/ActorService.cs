@@ -4,9 +4,9 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MoviesApp.Data;
 using MoviesApp.Models;
-using MoviesApp.Services.ActorService.Dto;
+using MoviesApp.Services.Dto;
 
-namespace MoviesApp.Services.ActorService
+namespace MoviesApp.Services
 {
     public class ActorService : IActorService
     {
@@ -33,6 +33,8 @@ namespace MoviesApp.Services.ActorService
         {
             if (actorDto.Id == null)
             {
+                //упрощение для примера
+                //лучше всего генерировать ошибки и обрабатывать их на уровне конроллера
                 return null;
             }
 
@@ -47,12 +49,16 @@ namespace MoviesApp.Services.ActorService
             }
             catch (DbUpdateException)
             {
-                if (!ActorExists((int) actorDto.Id))
+                if (!ActorExists((int)actorDto.Id))
                 {
+                    //упрощение для примера
+                    //лучше всего генерировать ошибки и обрабатывать их на уровне конроллера
                     return null;
                 }
                 else
                 {
+                    //упрощение для примера
+                    //лучше всего генерировать ошибки и обрабатывать их на уровне конроллера
                     return null;
                 }
             }
@@ -70,6 +76,8 @@ namespace MoviesApp.Services.ActorService
             var actor = _context.Actors.Find(id);
             if (actor == null)
             {
+                //упрощение для примера
+                //лучше всего генерировать ошибки и обрабатывать их на уровне конроллера
                 return null;
             }
 
@@ -81,7 +89,7 @@ namespace MoviesApp.Services.ActorService
 
         private bool ActorExists(int id)
         {
-            return _context.Actors.Any(a => a.Id == id);
+            return _context.Actors.Any(e => e.Id == id);
         }
     }
 }

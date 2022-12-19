@@ -20,7 +20,7 @@
                 <label asp-for="@Model.First().LastName"></label>
             </th>
             <th>
-                <label asp-for="@Model.First().BirthOfDate"></label>
+                <label asp-for="@Model.First().Birthday"></label>
             </th>
             <th></th>
         </tr>
@@ -36,7 +36,7 @@
                     @item.LastName
                 </td>
                 <td>
-                    @item.BirthOfDate.ToString("dd.MM.yyyy")
+                    @item.Birthday.ToString("dd.MM.yyyy")
                 </td>
                 
                 <td>
